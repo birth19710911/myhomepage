@@ -106,14 +106,17 @@
 }
 
     /* 戦績表 */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: rgba(255,255,255,0.9);
-      color: #000;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+table {
+  width: auto;              /* ← これが超重要！ */
+  max-width: 100%;          /* ← フィールド内で収まる */
+  margin: 0 auto;           /* ← 中央寄せ */
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
     th, td {
       padding: 10px;
       border: 1px solid #ccc;
