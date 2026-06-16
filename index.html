@@ -17,35 +17,83 @@
       border-radius: 4px;
       animation: blink 1s infinite;
     }
-
     @keyframes blink {
       0% { opacity: 1; }
       50% { opacity: 0; }
       100% { opacity: 1; }
     }
 
-    /* ラグビー場の背景（芝＋白線） */
+    /* ページ全体：京産大ジャージ（紺×エンジ） */
     body {
       background:
-        /* ハーフウェイライン（中央） */
-        linear-gradient(to bottom, white 4px, transparent 4px) 
-          0 calc(50vh - 2px) / 100% 4px no-repeat,
+        repeating-linear-gradient(
+          to bottom,
+          #001A57,
+          #001A57 60px,
+          #8B0000 60px,
+          #8B0000 120px
+        );
+      margin: 0;
+      padding: 40px 0;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    /* 中央のラグビー場 */
+    .field {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 20px;
+      position: relative;
+
+      background:
+
+        /* デッドボールライン（上） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 0 / 100% 4px no-repeat,
+
+        /* ゴールライン（上） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 50px / 100% 4px no-repeat,
+
+        /* トライゾーン（上） */
+        linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))
+          0 0 / 100% 50px no-repeat,
+
+        /* デッドボールライン（下） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 calc(100% - 4px) / 100% 4px no-repeat,
+
+        /* ゴールライン（下） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 calc(100% - 50px) / 100% 4px no-repeat,
+
+        /* トライゾーン（下） */
+        linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))
+          0 calc(100% - 50px) / 100% 50px no-repeat,
+
+        /* ハーフウェイライン */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 calc(50% - 2px) / 100% 4px no-repeat,
 
         /* 22mライン（上） */
-        linear-gradient(to bottom, white 3px, transparent 3px) 
-          0 calc(50vh - 200px) / 100% 3px no-repeat,
+        linear-gradient(to bottom, white 3px, transparent 3px)
+          0 calc(50% - 200px) / 100% 3px no-repeat,
 
         /* 22mライン（下） */
-        linear-gradient(to bottom, white 3px, transparent 3px) 
-          0 calc(50vh + 200px) / 100% 3px no-repeat,
+        linear-gradient(to bottom, white 3px, transparent 3px)
+          0 calc(50% + 200px) / 100% 3px no-repeat,
 
-        /* タッチライン（左右） */
-        linear-gradient(to right, white 4px, transparent 4px) 
+        /* サイドライン（左右） */
+        linear-gradient(to right, white 4px, transparent 4px)
           0 0 / 4px 100% no-repeat,
-        linear-gradient(to right, white 4px, transparent 4px) 
+        linear-gradient(to right, white 4px, transparent 4px)
           100% 0 / 4px 100% no-repeat,
 
-        /* 芝の濃淡（横縞） */
+        /* 芝の濃淡 */
         repeating-linear-gradient(
           to bottom,
           #0b6623,
@@ -53,26 +101,56 @@
           #0a5a1f 40px,
           #0a5a1f 80px
         );
-
-      color: white;
-      padding: 20px;
-      font-family: sans-serif;
     }
 
-    /* 戦績ボックス（芝の上に浮かせる） */
-    .result-box {
-      background: rgba(255, 255, 255, 0.85);
+    /* ゴールポスト（上） */
+    .goalpost-top {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 40px;
+      border-left: 4px solid white;
+      border-right: 4px solid white;
+      border-top: 4px solid white;
+    }
+
+    /* ゴールポスト（下） */
+    .goalpost-bottom {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 40px;
+      border-left: 4px solid white;
+      border-right: 4px solid white;
+      border-bottom: 4px solid white;
+    }
+
+    /* 戦績表 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.9);
       color: #000;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 600px;
-      margin: 40px auto;
-      backdrop-filter: blur(4px);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background: #eee;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
+
   <h1>こんにちは！</h1>
 
   <p>
@@ -80,9 +158,37 @@
     これは私が GitHub で作った最初のホームページです。
   </p>
 
-  <div class="result-box">
-    <h2>京都産業大学ラグビー部戦績</h2>
-    <p>ここに戦績を追加していきます。</p>
+  <!-- ラグビー場 -->
+  <div class="field">
+
+    <!-- ゴールポスト -->
+    <div class="goalpost-top"></div>
+    <div class="goalpost-bottom"></div>
+
+    <!-- 戦績表 -->
+    <h2 style="color:white;">京都産業大学ラグビー部戦績</h2>
+
+    <table>
+      <tr>
+        <th>年度</th>
+        <th>大会</th>
+        <th>対戦相手</th>
+        <th>スコア</th>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>関西大学リーグ</td>
+        <td>同志社大学</td>
+        <td>○ 28-21</td>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>関西大学リーグ</td>
+        <td>立命館大学</td>
+        <td>● 17-20</td>
+      </tr>
+    </table>
+
   </div>
 
 </body>
