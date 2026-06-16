@@ -43,16 +43,16 @@
     /* 中央のラグビー場 */
 .field {
   width: 90%;
-  max-width: 900px;
+  max-width: 600px;   /* ← 横幅を縮めた！ */
   margin: 0 auto;
   padding: 40px;
   border-radius: 20px;
   position: relative;
 
-  /* ← ラグビー場の高さを固定（ここが重要） */
-  height: 700px;
+  height: 700px;      /* ← ラグビー場の縦は固定 */
 
   background:
+
     /* デッドボールライン（上） */
     linear-gradient(to bottom, white 4px, transparent 4px)
       0 0 / 100% 4px no-repeat,
@@ -104,32 +104,6 @@
       #0a5a1f 80px
     );
 }
-
-    /* ゴールポスト（上） */
-    .goalpost-top {
-      position: absolute;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 40px;
-      border-left: 4px solid white;
-      border-right: 4px solid white;
-      border-top: 4px solid white;
-    }
-
-    /* ゴールポスト（下） */
-    .goalpost-bottom {
-      position: absolute;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 40px;
-      border-left: 4px solid white;
-      border-right: 4px solid white;
-      border-bottom: 4px solid white;
-    }
 
     /* 戦績表 */
     table {
