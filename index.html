@@ -40,124 +40,173 @@
       text-align: center;
     }
 
-/* 中央のラグビー場 */
-.field {
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 20px;
-  position: relative;
-  height: 700px;
+    /* ラグビー場 */
+    .field {
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 20px;
+      position: relative;
+      height: 700px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
 
-  background:
+      background:
 
-    /* デッドボールライン（上） */
-    linear-gradient(to bottom, white 4px, transparent 4px)
-      0 0 / 100% 4px no-repeat,
+        /* デッドボールライン（上） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 0 / 100% 4px no-repeat,
 
-    /* ゴールライン（上） */
-    linear-gradient(to bottom, white 4px, transparent 4px)
-      0 50px / 100% 4px no-repeat,
+        /* ゴールライン（上） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 50px / 100% 4px no-repeat,
 
-    /* トライゾーン（上） */
-    linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))
-      0 0 / 100% 50px no-repeat,
+        /* トライゾーン（上） */
+        linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))
+          0 0 / 100% 50px no-repeat,
 
-    /* デッドボールライン（下） */
-    linear-gradient(to bottom, white 4px, transparent 4px)
-      0 calc(100% - 4px) / 100% 4px no-repeat,
+        /* デッドボールライン（下） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 calc(100% - 4px) / 100% 4px no-repeat,
 
-    /* ゴールライン（下） */
-    linear-gradient(to bottom, white 4px, transparent 4px)
-      0 calc(100% - 50px) / 100% 4px no-repeat,
+        /* ゴールライン（下） */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 calc(100% - 50px) / 100% 4px no-repeat,
 
-    /* トライゾーン（下） */
-    linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))
-      0 calc(100% - 50px) / 100% 50px no-repeat,
+        /* トライゾーン（下） */
+        linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0))
+          0 calc(100% - 50px) / 100% 50px no-repeat,
 
-    /* ハーフウェイライン */
-    linear-gradient(to bottom, white 4px, transparent 4px)
-      0 calc(50% - 2px) / 100% 4px no-repeat,
+        /* ハーフウェイライン */
+        linear-gradient(to bottom, white 4px, transparent 4px)
+          0 calc(50% - 2px) / 100% 4px no-repeat,
 
-    /* 22mライン（上） */
-    linear-gradient(to bottom, white 3px, transparent 3px)
-      0 calc(50% - 200px) / 100% 3px no-repeat,
+        /* 22mライン（上） */
+        linear-gradient(to bottom, white 3px, transparent 3px)
+          0 calc(50% - 200px) / 100% 3px no-repeat,
 
-    /* 22mライン（下） */
-    linear-gradient(to bottom, white 3px, transparent 3px)
-      0 calc(50% + 200px) / 100% 3px no-repeat,
+        /* 22mライン（下） */
+        linear-gradient(to bottom, white 3px, transparent 3px)
+          0 calc(50% + 200px) / 100% 3px no-repeat,
 
-    /* サイドライン（左右） */
-    linear-gradient(to right, white 4px, transparent 4px)
-      0 0 / 4px 100% no-repeat,
-    linear-gradient(to right, white 4px, transparent 4px)
-      100% 0 / 4px 100% no-repeat,
+        /* サイドライン（左右） */
+        linear-gradient(to right, white 4px, transparent 4px)
+          0 0 / 4px 100% no-repeat,
+        linear-gradient(to right, white 4px, transparent 4px)
+          100% 0 / 4px 100% no-repeat,
 
-    /* 芝の濃淡 */
-    repeating-linear-gradient(
-      to bottom,
-      #0b6623,
-      #0b6623 40px,
-      #0a5a1f 40px,
-      #0a5a1f 80px
-    );
-}/
+        /* 芝の濃淡 */
+        repeating-linear-gradient(
+          to bottom,
+          #0b6623,
+          #0b6623 40px,
+          #0a5a1f 40px,
+          #0a5a1f 80px
+        );
+    }
 
-/* ← ここからゴールポスト（field の外） */
+    /* H型ゴールポスト（上） */
+    .goalpost-top {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+    }
+    .goalpost-top::before,
+    .goalpost-top::after,
+    .goalpost-top div {
+      content: "";
+      position: absolute;
+      background: white;
+    }
+    .goalpost-top::before { width: 4px; height: 80px; left: 0; top: 0; }
+    .goalpost-top::after  { width: 4px; height: 80px; right: 0; top: 0; }
+    .goalpost-top div     { width: 80px; height: 4px; top: 30px; left: 0; }
 
-/* ゴールポスト（上） */
-.goalpost-top {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 40px;
-  border-left: 4px solid white;
-  border-right: 4px solid white;
-  border-top: 4px solid white;
-}
+    /* H型ゴールポスト（下） */
+    .goalpost-bottom {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+    }
+    .goalpost-bottom::before,
+    .goalpost-bottom::after,
+    .goalpost-bottom div {
+      content: "";
+      position: absolute;
+      background: white;
+    }
+    .goalpost-bottom::before { width: 4px; height: 80px; left: 0; top: 0; }
+    .goalpost-bottom::after  { width: 4px; height: 80px; right: 0; top: 0; }
+    .goalpost-bottom div     { width: 80px; height: 4px; top: 30px; left: 0; }
 
-/* ゴールポスト（下） */
-.goalpost-bottom {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 40px;
-  border-left: 4px solid white;
-  border-right: 4px solid white;
-  border-bottom: 4px solid white;
-}
+    /* センターサークル */
+    .center-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border: 3px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-/* h2 の位置調整 */
-.field h2 {
-  margin-top: 120px;
-  color: white;
-}
+    /* 5mライン */
+    .line-5m-top, .line-5m-bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: white;
+    }
+    .line-5m-top { top: 55px; }
+    .line-5m-bottom { bottom: 55px; }
 
-    /* 戦績表 */
-table {
-  width: auto;              /* ← これが超重要！ */
-  max-width: 100%;          /* ← フィールド内で収まる */
-  margin: 0 auto;           /* ← 中央寄せ */
-  border-collapse: collapse;
-  background: rgba(255,255,255,0.9);
-  color: #000;
-  border-radius: 10px;
-  overflow: hidden;
-}
+    /* 10mライン */
+    .line-10m-top, .line-10m-bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: white;
+    }
+    .line-10m-top { top: calc(50% - 100px); }
+    .line-10m-bottom { top: calc(50% + 100px); }
 
+    /* 戦績表（カード風） */
+    table {
+      width: 100%;
+      background: white;
+      color: #000;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin-top: 20px;
+    }
     th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
     }
     th {
-      background: #eee;
+      background: #f5f5f5;
       font-weight: bold;
     }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* h2 の位置調整 */
+    .field h2 {
+      margin-top: 100px;
+      color: white;
+    }
+
   </style>
 </head>
 
@@ -173,12 +222,19 @@ table {
   <!-- ラグビー場 -->
   <div class="field">
 
-    <!-- ゴールポスト -->
-    <div class="goalpost-top"></div>
-    <div class="goalpost-bottom"></div>
+    <!-- H型ゴールポスト -->
+    <div class="goalpost-top"><div></div></div>
+    <div class="goalpost-bottom"><div></div></div>
+
+    <!-- センターサークル & ライン -->
+    <div class="center-circle"></div>
+    <div class="line-5m-top"></div>
+    <div class="line-5m-bottom"></div>
+    <div class="line-10m-top"></div>
+    <div class="line-10m-bottom"></div>
 
     <!-- 戦績表 -->
-<h2 style="color:white; margin-top:100px;">京都産業大学ラグビー部戦績</h2>
+    <h2>京都産業大学ラグビー部戦績</h2>
 
     <table>
       <tr>
