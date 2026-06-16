@@ -3,9 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>私のホームページ</title>
+  <style>
+    .new-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      margin-right: 8px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
   <h1>こんにちは！</h1>
-  <p>これは私が GitHub で作った最初のホームページです。</p>
+  <p>
+    <span class="new-badge">NEW</span>
+    これは私が GitHub で作った最初のホームページです。
+  </p>
 </body>
 </html>
