@@ -46,4 +46,44 @@
           100% 0 / 4px 100% no-repeat,
 
         /* 芝の濃淡（横縞） */
-        repeating-linear-gradient
+        repeating-linear-gradient(
+          to bottom,
+          #0b6623,
+          #0b6623 40px,
+          #0a5a1f 40px,
+          #0a5a1f 80px
+        );
+
+      color: white;
+      padding: 20px;
+      font-family: sans-serif;
+    }
+
+    /* 戦績ボックス（芝の上に浮かせる） */
+    .result-box {
+      background: rgba(255, 255, 255, 0.85);
+      color: #000;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 40px auto;
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>こんにちは！</h1>
+
+  <p>
+    <span class="new-badge">NEW</span>
+    これは私が GitHub で作った最初のホームページです。
+  </p>
+
+  <div class="result-box">
+    <h2>京都産業大学ラグビー部戦績</h2>
+    <p>ここに戦績を追加していきます。</p>
+  </div>
+
+</body>
+</html>
