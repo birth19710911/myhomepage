@@ -133,7 +133,7 @@
     .goalpost-top div     { width: 80px; height: 4px; top: 30px; left: 0; }
 
     /* H型ゴールポスト（下） */
-/* ゴールポスト全体の位置と幅 */
+　　/* ゴールポスト全体の位置と幅 */
 .goalpost-bottom {
   position: absolute;
   bottom: 50px;        /* ← ゴールラインに合わせて後で微調整可能 */
@@ -242,6 +242,11 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       margin-top: 25px;
     }
+    .field table {
+  position: relative;
+  z-index: 10;
+}
+
     th, td {
       padding: 12px;
       border-bottom: 1px solid #ddd;
@@ -255,10 +260,14 @@
     }
 
     /* h2 の位置調整 */
-    .field h2 {
-      margin-top: 110px;
-      color: white;
-    }
+.field h2 {
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 10;
+}
 
   </style>
 </head>
@@ -309,9 +318,7 @@
     <div class="line-5m-bottom"></div>
     <div class="line-10m-top"></div>
     <div class="line-10m-bottom"></div>
-
-   </div>
-    
+  
     <!-- 戦績表 -->
     <h2>京都産業大学ラグビー部戦績</h2>
 
@@ -360,6 +367,7 @@
       </tr>
    </table>
     
+   </div>    
 
     <!-- 戦績表 -->
     <h2>京都産業大学ラグビー部戦績</h2>
