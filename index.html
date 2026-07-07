@@ -232,16 +232,22 @@
     .line-10m-top { top: calc(50% - 100px); }
     .line-10m-bottom { top: calc(50% + 100px); }
 
-    /* 戦績表（カード風） */
-    table {
-      width: 100%;
-      background: white;
-      color: #000;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      margin-top: 30px;
-    }
+/* 戦績表（カード風） */
+table {
+  width: 100%;
+  background: white;
+  color: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  margin-top: 30px;
+}
+.field h2,
+.field table {
+  position: relative;
+  z-index: 10;
+}
+
     th, td {
       padding: 12px;
       border-bottom: 1px solid #ddd;
