@@ -23,12 +23,6 @@
       100% { opacity: 1; }
     }
 
-    table {
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
     /* ページ全体：京産大ジャージ（紺×エンジ） */
     body {
       background:
@@ -54,7 +48,7 @@
       padding: 40px;
       border-radius: 20px;
       position: relative;
-      z-index: 1;
+      z-index: 0; /* ← 背景を一番後ろにする */
       height: 700px;
       box-shadow: 0 0 25px rgba(0,0,0,0.5);
 
@@ -110,142 +104,51 @@
           #0a5a1f 40px,
           #0a5a1f 80px
         );
-    } /* */
-
-    /* H型ゴールポスト（上） */
-    .goalpost-top {
-      position: absolute;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 80px;
     }
-    .goalpost-top::before,
-    .goalpost-top::after,
-    .goalpost-top div {
-      content: "";
+
+    /* ゴールポスト（前面に出す） */
+    .goalpost-top,
+    .goalpost-bottom {
       position: absolute;
-      background: white;
+      z-index: 5; /* ← 背景より前に出す */
     }
-    .goalpost-top::before { width: 4px; height: 80px; left: 0; top: 0; }
-    .goalpost-top::after  { width: 4px; height: 80px; right: 0; top: 0; }
-    .goalpost-top div     { width: 80px; height: 4px; top: 30px; left: 0; }
-
-    /* H型ゴールポスト（下） */
-　　/* ゴールポスト全体の位置と幅 */
-.goalpost-bottom {
-  position: absolute;
-  bottom: 50px;        /* ← ゴールラインに合わせて後で微調整可能 */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 110px;       /* ← 全体の高さを確保 */
-}
-
-/* 左の縦棒（上） */
-.goalpost-bottom::before {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 90px;
-  left: 0;
-  top: 0;
-  background: white;
-}
-
-/* 左の縦棒（下） */
-.goalpost-bottom::after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 20px;
-  left: 0;
-  bottom: 0;
-  background: white;
-}
-
-/* 右の縦棒（上） */
-.goalpost-bottom .right-top {
-  position: absolute;
-  width: 4px;
-  height: 90px;
-  right: 0;
-  top: 0;
-  background: white;
-}
-
-/* 右の縦棒（下） */
-.goalpost-bottom .right-bottom {
-  position: absolute;
-  width: 4px;
-  height: 20px;
-  right: 0;
-  bottom: 0;
-  background: white;
-}
-
-/* 横棒（クロスバー） */
-.goalpost-bottom .bar {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 4px;
-  top: 90px;
-  left: 0;
-  background: white;
-}
 
     /* センターサークル */
-.center-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  border: 3px solid white;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  display: none;
-}
-
-    /* 5mライン */
-    .line-5m-top, .line-5m-bottom {
+    .center-circle {
       position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: white;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border: 3px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      display: none;
     }
-    .line-5m-top { top: 55px; }
-    .line-5m-bottom { bottom: 55px; }
 
-    /* 10mライン */
-    .line-10m-top, .line-10m-bottom {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
+    /* 戦績表（フィールド内に置く） */
+    .field h2 {
+      margin-top: 120px;
       background: white;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 10; /* ← 白線より前に出す */
     }
-    .line-10m-top { top: calc(50% - 100px); }
-    .line-10m-bottom { top: calc(50% + 100px); }
 
-    /* 戦績表（カード風） */
-    table {
+    .field table {
       width: 100%;
       background: white;
       color: #000;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      margin-top: 25px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 10; /* ← 白線より前に出す */
     }
-    .field table {
-  position: relative;
-  z-index: 10;
-}
 
     th, td {
       padding: 12px;
@@ -259,148 +162,64 @@
       border-bottom: none;
     }
 
-    /* h2 の位置調整 */
-.field h2 {
-  background: white;
-  color: black;
-  padding: 10px;
-  border-radius: 10px;
-  position: relative;
-  z-index: 10;
-}
-
   </style>
 </head>
 
 <body>
 
-<!-- アクセスカウンター（FreeCounterStat） -->
-<div style="position: relative; z-index: 9999; margin: 20px auto; width: fit-content;">
-  <div id="sfcjkk9s3fgp157kd2kjkzx574bg76t17j7"></div>
-  <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=jkk9s3fgp157kd2kjkzx574bg76t17j7&down=async" async></script>
-  <noscript>
-    <a href="https://www.freecounterstat.com" title="free counters">
-      <img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=jkk9s3fgp157kd2kjkzx574bg76t17j7" border="0" alt="free counters">
-    </a>
-  </noscript>
-</div>
-
-
-<!-- ここからあなたのHPの内容 -->
-
 <p style="text-align:center; font-size:14px;">
 京都産業大学ラグビー部の非公式戦績まとめページです。
-過去の試合結果、対戦校、スコア、記録を一覧で確認できます。
 </p>
-  
-  <h1>京都産業大学ラグビーファンのみなさまへ</h1>
 
-  <p>
-    <span class="new-badge">NEW</span>
-    京都産業大学ラグビー部を応援するページです
-  </p>
+<h1>京都産業大学ラグビーファンのみなさまへ</h1>
 
-  <!-- ラグビー場 -->
-  <div class="field">
+<p>
+  <span class="new-badge">NEW</span>
+  京都産業大学ラグビー部を応援するページです
+</p>
 
-    <!-- H型ゴールポスト -->
-    <div class="goalpost-top"><div></div></div>
-    <div class="goalpost-bottom">
-  <div class="bar"></div>
-  <div class="right-top"></div>
-  <div class="right-bottom"></div>
+<!-- ラグビー場 -->
+<div class="field">
+
+  <!-- ゴールポスト -->
+  <div class="goalpost-top"><div></div></div>
+  <div class="goalpost-bottom">
+    <div class="bar"></div>
+    <div class="right-top"></div>
+    <div class="right-bottom"></div>
+  </div>
+
+  <!-- 戦績表（フィールド内） -->
+  <h2>京都産業大学ラグビー部戦績</h2>
+
+  <table>
+    <tr>
+      <th>年度</th>
+      <th>大会</th>
+      <th>対戦相手</th>
+      <th>スコア</th>
+    </tr>
+    <tr>
+      <td>2026</td>
+      <td>関西大学春季トーナメント2回戦</td>
+      <td>立命館大学</td>
+      <td>○ 19-7</td>
+    </tr>
+    <tr>
+      <td>2026</td>
+      <td>関西大学春季トーナメント3回戦</td>
+      <td>近畿大学</td>
+      <td>○ 27-26</td>
+    </tr>
+    <tr>
+      <td>2026</td>
+      <td>関西大学春季トーナメント順位決定戦</td>
+      <td>天理大学</td>
+      <td>○ 28-24</td>
+    </tr>
+  </table>
+
 </div>
 
-
-    <!-- センターサークル & ライン -->
-    <div class="center-circle"></div>
-    <div class="line-5m-top"></div>
-    <div class="line-5m-bottom"></div>
-    <div class="line-10m-top"></div>
-    <div class="line-10m-bottom"></div>
-  
-    <!-- 戦績表 -->
-    <h2>京都産業大学ラグビー部戦績</h2>
-
-    <table>
-      <tr>
-        <th>年度</th>
-        <th>大会</th>
-        <th>対戦相手</th>
-        <th>スコア</th>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学リーグ戦〇月〇日</td>
-        <td>〇〇大学</td>
-        <td>○ 〇-〇</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学リーグ戦〇月〇日</td>
-        <td>〇〇大学</td>
-        <td>○ 〇-〇</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学リーグ戦〇月〇日</td>
-        <td>〇〇大学</td>
-        <td>○ 〇-〇</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学リーグ戦〇月〇日</td>
-        <td>〇〇大学</td>
-        <td>○ 〇-〇</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学リーグ戦〇月〇日</td>
-        <td>〇〇大学</td>
-        <td>○ 〇-〇</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学リーグ戦〇月〇日</td>
-        <td>〇〇大学</td>
-        <td>○ 〇-〇</td>
-      </tr>
-   </table>
-    
-   </div>    
-
-    <!-- 戦績表 -->
-    <h2>京都産業大学ラグビー部戦績</h2>
-
-    <table>
-      <tr>
-        <th>年度</th>
-        <th>大会</th>
-        <th>対戦相手</th>
-        <th>スコア</th>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学春季トーナメント2回戦</td>
-        <td>立命館大学</td>
-        <td>○ 19-7</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学春季トーナメント3回戦</td>
-        <td>近畿大学</td>
-        <td>○ 27-26</td>
-      </tr>
-      <tr>
-        <td>2026</td>
-        <td>関西大学春季トーナメント順位決定戦</td>
-        <td>天理大学</td>
-        <td>○ 28-24</td>
-      </tr>
-    </table>
-    
-<!-- アクセスカウンター -->
-<script src="https://cdn.counter.dev/script.js" data-id="51cfc049-af60-4d3f-81c7-d34688424618" data-utcoffset="9"></script>
 </body>
 </html>
-
