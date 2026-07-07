@@ -141,7 +141,7 @@
   content: "";
   position: absolute;
   width: 4px;
-  height: 120px;       /* ← 上の縦棒を長くする */
+  height: 120px;
   left: 0;
   top: 0;
   background: white;
@@ -152,8 +152,28 @@
   content: "";
   position: absolute;
   width: 4px;
-  height: 30px;        /* ← 下の縦棒は短くする */
+  height: 30px;
   left: 0;
+  bottom: 0;
+  background: white;
+}
+
+/* 右の縦棒（上） */
+.goalpost-bottom .right-top {
+  position: absolute;
+  width: 4px;
+  height: 120px;
+  right: 0;
+  top: 0;
+  background: white;
+}
+
+/* 右の縦棒（下） */
+.goalpost-bottom .right-bottom {
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  right: 0;
   bottom: 0;
   background: white;
 }
@@ -164,10 +184,11 @@
   position: absolute;
   width: 80px;
   height: 4px;
-  top: 120px;          /* ← 上の縦棒の下端に合わせる */
+  top: 120px;
   left: 0;
   background: white;
 }
+
     /* センターサークル */
 .center-circle {
   position: absolute;
@@ -268,7 +289,12 @@
 
     <!-- H型ゴールポスト -->
     <div class="goalpost-top"><div></div></div>
-    <div class="goalpost-bottom"><div></div></div>
+    <div class="goalpost-bottom">
+  <div class="bar"></div>
+  <div class="right-top"></div>
+  <div class="right-bottom"></div>
+</div>
+
 
     <!-- センターサークル & ライン -->
     <div class="center-circle"></div>
